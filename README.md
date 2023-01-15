@@ -7,8 +7,6 @@ sdk: docker
 pinned: false
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
 - 进入项目目录，建立虚拟环境，并安装依赖
 
 ```python
@@ -26,7 +24,6 @@ pyenv global $PYTHON_VERSION
 pyenv rehash
 
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-
 
 
 ```
