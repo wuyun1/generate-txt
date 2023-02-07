@@ -11,9 +11,8 @@ FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 
 # COPY . .
 
-RUN apt-get update -y
-
-RUN apt-get install -y python3 python3-pip
+RUN rm -rf /etc/apt/sources.list.d/* && apt-get update -y && apt-get install -y python3 python3-pip && apt-get clean && \
+    rm -fr /tmp/* /var/lib/apt/lists
 
 RUN useradd -ms /bin/bash qhduan
 USER qhduan
