@@ -24,9 +24,7 @@ ENV torch_device=cpu
 
 ENV PATH="/home/qhduan/.local/bin:${PATH}"
 
-RUN python3 -m pip install --upgrade --user pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-
-RUN python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+RUN python3 -m pip install --upgrade --user pip -i https://pypi.tuna.tsinghua.edu.cn/simple && python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 COPY --chown=qhduan:qhduan ./requirements.txt .
 
