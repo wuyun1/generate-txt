@@ -8,9 +8,14 @@
 # data==0.4
 # prox==0.0.17
 
-gradio
+# gradio
 transformers
 
 torch
 torchvision
 torchaudio
+
+uvicorn[standard]
+
+fastapi
+pydantic
