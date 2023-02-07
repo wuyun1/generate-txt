@@ -19,3 +19,4 @@ uvicorn[standard]
 
 fastapi
 pydantic
+sentencepiece

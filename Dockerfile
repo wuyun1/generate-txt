@@ -2,6 +2,10 @@
 # you will also find guides on how best to write your Dockerfile
 
 FROM nvidia/cuda:10.0-runtime-ubuntu18.04
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 # FROM python:3.9
 
 # WORKDIR /code
@@ -16,7 +20,7 @@ RUN rm -rf /etc/apt/sources.list.d/* && apt-get update -y && apt-get install -y 
 
 RUN useradd -ms /bin/bash qhduan
 USER qhduan
-WORKDIR /home/qhduan
+WORKDIR /home/qhduan/app
 
 VOLUME [ "/home/qhduan/.cache" ]
 
@@ -37,9 +41,9 @@ COPY --chown=qhduan:qhduan ./scripts ./scripts
 EXPOSE 8000
 HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
 
-# ENTRYPOINT ["/home/qhduan/scripts/run.sh"]
+# ENTRYPOINT ["/home/qhduan/app/scripts/run.sh"]
 
-CMD [ "bash", "-c", "/home/qhduan/scripts/run.sh" ]
+CMD [ "bash", "-c", "/home/qhduan/app/scripts/run.sh" ]
 
 # docker build -t qhduan/onnx-cpm-gen:0.1 .
 # docker run -e torch_device=cpu -v $(cd ~;pwd)/.cache:/home/qhduan/.cache -p 8000:8000 --rm --name ai-test -ti qhduan/onnx-cpm-gen:0.1
